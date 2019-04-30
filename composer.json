@@ -1,0 +1,30 @@
+{
+    "name": "al-one/laravel-replace-into",
+    "description": "SQL replace into for Laravel",
+    "keywords": ["laravel", "database", "replace-into"],
+    "authors": [
+        {
+            "name": "Alone",
+            "email": "hi@anlo.ng"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4",
+        "illuminate/contracts": "~5.4"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Alone\\LaravelReplaceInto\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Alone\\LaravelReplaceInto\\ServiceProvider"
+            ]
+        }
+    },
+    "prefer-stable": true,
+    "license": "MIT"
+}
