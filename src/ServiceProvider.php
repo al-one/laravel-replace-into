@@ -51,7 +51,7 @@ class ServiceProvider extends BaseServiceProvider
             /* @var $this Database\Query\Builder */
             $query = $this;
             $drv = $query->connection->getDriverName();
-            if($drv == 'mysql')
+            if($drv == 'mysql' || $drv == 'sqlite')
             {
                 if(!is_array(reset($values)))
                 {
