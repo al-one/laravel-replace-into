@@ -4,6 +4,7 @@ namespace Alone\LaravelReplaceInto;
 
 use Illuminate\Database;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
+use Illuminate\Support\Arr;
 
 class ServiceProvider extends BaseServiceProvider
 {
@@ -67,7 +68,7 @@ class ServiceProvider extends BaseServiceProvider
                 }
                 $sql = $query->grammar->compileInsert($query,$values);
                 $sql = preg_replace('/^\s*insert\s+into\b/i','replace into',$sql);
-                $bds = $query->cleanBindings(array_flatten($values,1));
+                $bds = $query->cleanBindings(Arr::flatten($values,1));
                 $ret = $query->connection->insert($sql,$bds);
             }
             elseif($uniqueKeys)
@@ -78,10 +79,10 @@ class ServiceProvider extends BaseServiceProvider
                 }
                 foreach($values as $key => $value)
                 {
-                    $attributes = array_only($value,$uniqueKeys);
+                    $attributes = Arr::only($value,$uniqueKeys);
                     if($attributes)
                     {
-                        $value = array_except($value,$uniqueKeys);
+                        $value = Arr::except($value,$uniqueKeys);
                         $query->wheres = [];
                         $ret = $query->updateOrInsert($attributes,$value);
                     }
