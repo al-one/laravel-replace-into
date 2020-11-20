@@ -1,7 +1,7 @@
 {
     "name": "al-one/laravel-replace-into",
     "description": "SQL replace into for Laravel",
-    "keywords": ["laravel", "database", "replace-into"],
+    "keywords": ["laravel", "database", "eloquent", "replace-into"],
     "authors": [
         {
             "name": "Alone",
@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": ">=5.6.4",
-        "illuminate/contracts": "^5.3 || ^6.0 || ^7.0"
+        "illuminate/contracts": "^5.3 || ^6.0 || ^7.0 || ^8.0"
     },
 
     "autoload": {
